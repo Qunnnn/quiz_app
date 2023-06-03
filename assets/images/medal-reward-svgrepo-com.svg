@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512 512" xml:space="preserve">
+<polygon style="fill:#FC0023;" points="481.886,449.532 412.17,453.715 373.686,512 272.175,336.178 380.375,273.71 "/>
+<polygon style="fill:#FF4F19;" points="138.314,512 99.831,453.719 30.114,449.536 131.625,273.711 239.823,336.184 "/>
+<circle style="fill:#FFEA8A;" cx="255.996" cy="171.788" r="171.788"/>
+<g>
+	<path style="fill:#FFDB2D;" d="M256.001,0L256.001,0l-0.002,343.576h0.002c94.875,0,171.788-76.911,171.788-171.788
+		C427.789,76.914,350.876,0,256.001,0z"/>
+	<circle style="fill:#FFDB2D;" cx="255.996" cy="171.788" r="78.085"/>
+</g>
+<path style="fill:#FFAF33;" d="M256.001,93.703L256.001,93.703l-0.002,156.171h0.002c43.125,0,78.085-34.96,78.085-78.085
+	S299.126,93.703,256.001,93.703z"/>
+</svg>

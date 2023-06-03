@@ -1,0 +1,1 @@
+class SeverException implements Exception{}
