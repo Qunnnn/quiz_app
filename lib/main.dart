@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quiz_app/features/main/data/datasources/remote_data_source.dart';
-import 'package:quiz_app/features/main/data/repositories/repo_iml.dart';
-import 'package:quiz_app/features/main/domain/usecases/get_random_quiz.dart';
-import 'package:quiz_app/features/main/presentation/pages/start_page.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz_app/features/main/presentation/provider/global_provider.dart';
+import 'features/quiz/quiz.dart';
 
 void main() {
   runApp(const MyApp());

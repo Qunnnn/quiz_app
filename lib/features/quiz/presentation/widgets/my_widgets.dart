@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:quiz_app/features/quiz/presentation/presentation.dart';
 import '../../../../constant/constant.dart';
-import '../pages/quiz_page.dart';
-import '../provider/global_provider.dart';
 
 InkWell startButton(Size size, {required void Function()? ontap}) {
   return InkWell(
@@ -14,11 +13,7 @@ InkWell startButton(Size size, {required void Function()? ontap}) {
           color: Colors.red, borderRadius: BorderRadius.circular(15)),
       child: const Center(
           child: Text('Start Quiz!',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ))),
+              style: AppTextStyle.buttonTextStyle)),
     ),
   );
 }
@@ -96,8 +91,7 @@ InkWell replayBtn(BuildContext context, Size size) {
       child: const Center(
         child: Text(
           'Play Again',
-          style: TextStyle(
-              color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+          style: AppTextStyle.buttonTextStyle,
         ),
       ),
     ),
@@ -113,9 +107,7 @@ Column quizField(double defaultPadding, GlobalProvider quiz) {
         children: [
           Text(
             'Category:',
-            style: questionTextStyle.copyWith(
-              fontSize: 18,
-            ),
+            style: AppTextStyle.titleTextStyle,
           ),
           SizedBox(
             width: defaultPadding * 0.2,
@@ -124,10 +116,7 @@ Column quizField(double defaultPadding, GlobalProvider quiz) {
             child: Text(
               quiz.getQuiz().category,
               overflow: TextOverflow.clip,
-              style: questionTextStyle.copyWith(
-                  fontWeight: FontWeight.w400,
-                  color: Colors.grey,
-                  fontSize: 18),
+              style: AppTextStyle.contentTextStyle,
             ),
           ),
         ],
@@ -139,15 +128,14 @@ Column quizField(double defaultPadding, GlobalProvider quiz) {
         children: [
           Text(
             'Difficulty:',
-            style: questionTextStyle.copyWith(fontSize: 18),
+            style: AppTextStyle.titleTextStyle,
           ),
           SizedBox(
             width: defaultPadding * 0.2,
           ),
           Text(
             quiz.getQuiz().difficulty,
-            style: questionTextStyle.copyWith(
-                fontWeight: FontWeight.w400, color: Colors.grey, fontSize: 18),
+            style: AppTextStyle.contentTextStyle,
           ),
         ],
       ),
@@ -157,7 +145,7 @@ Column quizField(double defaultPadding, GlobalProvider quiz) {
       Text(
         quiz.getQuiz().question,
         textAlign: TextAlign.center,
-        style: questionTextStyle,
+        style: AppTextStyle.questionTextStyle,
       ),
     ],
   );

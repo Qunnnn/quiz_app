@@ -1,4 +1,4 @@
-import 'package:quiz_app/features/main/domain/entities/quiz_entity.dart';
+import 'package:quiz_app/features/quiz/domain/entities/quiz_entity.dart';
 
 class QuizModel extends QuizEntity {
  final String category;

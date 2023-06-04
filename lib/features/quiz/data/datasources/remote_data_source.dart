@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
-import 'package:quiz_app/error/exception.dart';
-import 'package:quiz_app/features/main/data/models/quiz_model.dart';
+import 'package:quiz_app/core/error/exception.dart';
+import 'package:quiz_app/features/quiz/data/models/quiz_model.dart';
 import 'dart:convert';
 
 abstract class RemoteDataSource {

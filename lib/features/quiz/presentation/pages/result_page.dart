@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/constant/constant.dart';
+import '../../../../constant/constant.dart';
 import '../widgets/my_widgets.dart';
+
+
 
 class ResultPage extends StatelessWidget {
   final int totalTime;
@@ -11,7 +13,7 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Dialog(
           backgroundColor: Colors.white,
           child: Container(
@@ -35,8 +37,8 @@ class ResultPage extends StatelessWidget {
                     height: size.height * 0.03,
                   ),
                   scores >= 5
-                      ? logo(size.height * 0.12, medalLogo)
-                      : logo(size.height * 0.12, repeatLogo),
+                      ? logo(size.height * 0.12, AppPaths.medalLogo)
+                      : logo(size.height * 0.12, AppPaths.repeatLogo),
                   SizedBox(
                     height: size.height * 0.03,
                   ),

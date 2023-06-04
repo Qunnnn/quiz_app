@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:quiz_app/error/error.dart';
-import 'package:quiz_app/error/exception.dart';
-import 'package:quiz_app/features/main/data/datasources/remote_data_source.dart';
-import 'package:quiz_app/features/main/domain/entities/quiz_entity.dart';
-import 'package:quiz_app/features/main/domain/repositories/quiz_repo.dart';
+import 'package:quiz_app/core/error/error.dart';
+import 'package:quiz_app/core/error/exception.dart';
+import 'package:quiz_app/features/quiz/data/datasources/remote_data_source.dart';
+import '../../domain/domain.dart';
+
 
 class RepoIml implements QuizRepo {
   RemoteDataSource remoteDataSource;

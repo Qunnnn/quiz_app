@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz_app/constant/constant.dart';
-import 'package:quiz_app/features/main/presentation/pages/result_page.dart';
-import 'package:quiz_app/features/main/presentation/pages/start_page.dart';
-import 'package:quiz_app/features/main/presentation/provider/global_provider.dart';
-import 'package:quiz_app/features/main/presentation/widgets/my_widgets.dart';
+import 'package:quiz_app/features/quiz/presentation/presentation.dart';
+import '../../../../constant/constant.dart';
+
 
 class QuizPage extends StatefulWidget {
   const QuizPage({
@@ -45,14 +43,14 @@ class _QuizPageState extends State<QuizPage> {
     final quiz = context.watch<GlobalProvider>();
     if (quiz.listQuiz.isEmpty) {
       return const Scaffold(
-        backgroundColor: backgroundColor,
+        backgroundColor: AppColors.backgroundColor,
         body: Center(
           child: SpinKitChasingDots(color: Colors.white),
         ),
       );
     }
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -68,7 +66,7 @@ class _QuizPageState extends State<QuizPage> {
                   onTap: () {
                     quiz.reset();
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => StartPage()));
+                        MaterialPageRoute(builder: (context) =>const StartPage()));
                   },
                   child: const Icon(
                     Icons.close,
@@ -118,8 +116,7 @@ class _QuizPageState extends State<QuizPage> {
         child: Center(
           child: Text(
             quiz.quizNumber == 9 ? 'Result' : 'Next',
-            style: const TextStyle(
-                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+            style: AppTextStyle.buttonTextStyle,
           ),
         ),
       ),
@@ -187,7 +184,7 @@ class _QuizPageState extends State<QuizPage> {
   bool checkAns(GlobalProvider quiz, int index) {
     if (quiz.getQuiz().correctAnswer == quiz.getFullAnswers()[index]) {
       setState(() {
-        btnColor = isTrue;
+        btnColor = AppColors.isAnsTrue;
         iconbutn = Icons.check_circle_outline;
         scores++;
       });
@@ -195,7 +192,7 @@ class _QuizPageState extends State<QuizPage> {
     }
     if (quiz.getQuiz().correctAnswer != quiz.getFullAnswers()[index]) {
       setState(() {
-        btnColor = isWrong;
+        btnColor = AppColors.isAnsWrong;
         iconbutn = Icons.check_circle_outline;
       });
       return true;

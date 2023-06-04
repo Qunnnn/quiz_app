@@ -1,8 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:quiz_app/features/main/domain/entities/quiz_entity.dart';
-import 'package:quiz_app/features/main/domain/usecases/get_random_quiz.dart';
+import '../../domain/domain.dart';
+
 
 class GlobalProvider extends ChangeNotifier {
   final GetRandomQuiz getRandomQuiz;
