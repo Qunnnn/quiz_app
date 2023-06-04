@@ -29,7 +29,7 @@ class _QuizPageState extends State<QuizPage> {
   late DateTime startTime;
   @override
   void initState() {
-   startTime = DateTime.now();
+    startTime = DateTime.now();
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       globalProvider = Provider.of<GlobalProvider>(context, listen: false);
       globalProvider.getListQuizs();
@@ -77,17 +77,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               SizedBox(
-                height: defaultPadding * 0.7,
+                height: defaultPadding * 0.3,
               ),
               questionBannerWidget(quiz),
               SizedBox(
-                height: defaultPadding,
+                height: defaultPadding * 0.2,
               ),
-              Text(
-                quiz.getQuiz().question,
-                textAlign: TextAlign.center,
-                style: questionTextStyle,
-              ),
+              quizField(defaultPadding, quiz),
               SizedBox(
                 height: defaultPadding,
               ),
@@ -95,33 +91,35 @@ class _QuizPageState extends State<QuizPage> {
               SizedBox(
                 height: defaultPadding * 0.7,
               ),
-              InkWell(
-                borderRadius: BorderRadius.circular(20),
-                onTap: () {
-                  checkQuiz(quiz);
-                },
-                child: Container(
-                  height: size.height * 0.065,
-                  width: size.width * 0.7,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: isPressed ? Colors.red : Colors.grey,
-                    ),
-                    color: isPressed ? Colors.red : Colors.transparent,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child:  Center(
-                    child: Text(
-                     quiz.quizNumber == 9 ? 'Result': 'Next',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ),
-              ),
+              nextBtn(quiz, size),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  InkWell nextBtn(GlobalProvider quiz, Size size) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: () {
+        checkQuiz(quiz);
+      },
+      child: Container(
+        height: size.height * 0.065,
+        width: size.width * 0.7,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: isPressed ? Colors.red : Colors.grey,
+          ),
+          color: isPressed ? Colors.red : Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Center(
+          child: Text(
+            quiz.quizNumber == 9 ? 'Result' : 'Next',
+            style: const TextStyle(
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
           ),
         ),
       ),
@@ -208,7 +206,7 @@ class _QuizPageState extends State<QuizPage> {
   void checkQuiz(GlobalProvider quiz) {
     if (quiz.isFinished()) {
       final DateTime endTime = DateTime.now();
-      final totalTime  = endTime.difference(startTime);
+      final totalTime = endTime.difference(startTime);
       quiz.reset();
       Navigator.pushReplacement(
           context,
