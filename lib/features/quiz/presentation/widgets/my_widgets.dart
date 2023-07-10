@@ -37,7 +37,7 @@ RichText questionBannerWidget(GlobalProvider quiz) {
             style: const TextStyle(
               color: Colors.grey,
               fontSize: 14,
-            ))
+            )),
       ]));
 }
 
@@ -51,7 +51,7 @@ Column message(Size size,
     children: [
       Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
             color: Colors.black, fontWeight: FontWeight.bold, fontSize: 25),
       ),
       SizedBox(
@@ -59,7 +59,7 @@ Column message(Size size,
       ),
       Text(
         subTitle,
-        style: TextStyle(
+        style:const TextStyle(
             color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w600),
       ),
       SizedBox(

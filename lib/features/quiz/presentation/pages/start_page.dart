@@ -22,7 +22,7 @@ class StartPage extends StatelessWidget {
                 ontap: () => Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => QuizPage(),
+                      builder: (context) => const QuizPage(),
                     )),
               ),
               SizedBox(

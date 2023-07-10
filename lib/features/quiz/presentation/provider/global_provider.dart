@@ -41,7 +41,7 @@ class GlobalProvider extends ChangeNotifier {
   }
 
   bool isFinished() {
-    if (quizNumber >= listQuiz.length - 1) {
+    if (quizNumber >= listQuiz.length - 1) {  
       return true;
     } else {
       return false;

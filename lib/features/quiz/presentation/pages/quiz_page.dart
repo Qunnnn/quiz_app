@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:quiz_app/features/quiz/presentation/presentation.dart';
 import '../../../../constant/constant.dart';
 
-
 class QuizPage extends StatefulWidget {
   const QuizPage({
     super.key,
@@ -40,60 +39,61 @@ class _QuizPageState extends State<QuizPage> {
     final size = MediaQuery.of(context).size;
     final defaultPadding = size.height * 0.06;
 
-    final quiz = context.watch<GlobalProvider>();
-    if (quiz.listQuiz.isEmpty) {
-      return const Scaffold(
-        backgroundColor: AppColors.backgroundColor,
-        body: Center(
-          child: SpinKitChasingDots(color: Colors.white),
-        ),
-      );
-    }
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: defaultPadding * 0.4,
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                  onTap: () {
-                    quiz.reset();
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) =>const StartPage()));
-                  },
-                  child: const Icon(
-                    Icons.close,
-                    color: Colors.white,
+      body: Builder(builder: (context) {
+        final quiz = context.watch<GlobalProvider>();
+        if (quiz.listQuiz.isEmpty) {
+          return const Center(
+            child: SpinKitChasingDots(color: Colors.white),
+          );
+        }
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: defaultPadding * 0.4,
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: InkWell(
+                    onTap: () {
+                      quiz.reset();
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const StartPage()));
+                    },
+                    child: const Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: defaultPadding * 0.3,
-              ),
-              questionBannerWidget(quiz),
-              SizedBox(
-                height: defaultPadding * 0.2,
-              ),
-              quizField(defaultPadding, quiz),
-              SizedBox(
-                height: defaultPadding,
-              ),
-              answerField(quiz, size),
-              SizedBox(
-                height: defaultPadding * 0.7,
-              ),
-              nextBtn(quiz, size),
-            ],
+                SizedBox(
+                  height: defaultPadding * 0.3,
+                ),
+                questionBannerWidget(quiz),
+                SizedBox(
+                  height: defaultPadding * 0.2,
+                ),
+                quizField(defaultPadding, quiz),
+                SizedBox(
+                  height: defaultPadding,
+                ),
+                answerField(quiz, size),
+                SizedBox(
+                  height: defaultPadding * 0.7,
+                ),
+                nextBtn(quiz, size),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 
