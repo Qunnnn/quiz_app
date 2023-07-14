@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_app/injection_container.dart';
 import 'features/quiz/quiz.dart';
 
-void main() {
+void main() async {
+  await init();
   runApp(const MyApp());
 }
 
@@ -13,9 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => GlobalProvider(
-          getRandomQuiz: GetRandomQuiz(
-              quizRepo: RepoIml(remoteDataSource: RemoteDataSourceIml()))),
+      create: (context) => sl<GlobalProvider>(),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Quiz Application',
